@@ -1,0 +1,68 @@
+Ok, one module loaded.
+*Main> []
+[]
+*Main> 1 : []
+[1]
+*Main> 5:1:[]
+[5,1]
+*Main> 5:(1:[])
+[5,1]
+*Main> :t (:)
+(:) :: a -> [a] -> [a]
+*Main> 1:[5]
+[1,5]
+*Main> :t []
+[] :: [a]
+*Main> [1]:[]
+[[1]]
+*Main> [1]:[[2,3]]
+[[1],[2,3]]
+*Main> :t [1]:[[2,3]]
+[1]:[[2,3]] :: Num a => [[a]]
+*Main> [1,2,3,4] !! 2
+3
+*Main> "abcf" !! 2
+'c'
+*Main> 
+*Main> :r
+Ok, one module loaded.
+*Main> lenght [1, 2 , 4]
+
+<interactive>:92:1: error:
+    Variable not in scope: lenght :: [Integer] -> t
+*Main> lenght [1,2,3]
+
+<interactive>:93:1: error:
+    Variable not in scope: lenght :: [Integer] -> t
+*Main> :cd C:\Users\hulia\OneDrive\Desktop
+Warning: changing directory causes all loaded modules to be unloaded,
+because the search path has changed.
+Prelude> :load "upr.hs"
+[1 of 1] Compiling Main             ( upr.hs, interpreted )
+Ok, one module loaded.
+*Main> :r
+Ok, one module loaded.
+*Main> lenght [1,2,3]
+3
+*Main> :r
+[1 of 1] Compiling Main             ( upr.hs, interpreted )
+Ok, one module loaded.
+*Main> map (^2) [1,2,3]
+[1,4,9]
+*Main> :r
+[1 of 1] Compiling Main             ( upr.hs, interpreted )
+Ok, one module loaded.
+*Main> map (\x -> 'a') [1,2,3]
+"aaa"
+*Main> :r
+[1 of 1] Compiling Main             ( upr.hs, interpreted )
+Ok, one module loaded.
+*Main> filter (>10) [7, 8, 9, 10, 11,12]
+[11,12]
+*Main> [1..100]
+[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100]
+*Main> filter (>6) [8..10]
+[8,9,10]
+*Main> [1,8..100]
+[1,8,15,22,29,36,43,50,57,64,71,78,85,92,99]
+*Main> 
