@@ -106,6 +106,45 @@ filtersmallerThan::[Int]->Int->[Int]
 filtersmallerThan [] n = []
 filtersmallerThan xs n= filter (<n) xs
 
+
+chunksOf:: Int->[a] ->[[a]]
+chunksOf n []         = []
+chunksOf n xs = take n xs : chunksOf n (drop n xs)
+
+
+divisors:: Integer -> [Integer]
+divisors n = [ x | x <-[1..n], n `mod` x ==0 ]
+
+prime::Integer->Bool
+prime n =null [x | x <-[2..n-1] , n `mod` x ==0] && n/=1
+
+
+primesInRange :: Integer -> Integer -> [Integer]
+primesInRange a b = [x | x <-[a..b], prime x]
+
+prodSumDiv:: [Integer]->Integer->[Integer]
+prodSumDiv xs k = [x | x<-xs, sum(divisors x) `mod` k ==0]
+
+isSorted ::[Int] ->Bool
+isSorted []          =True
+isSorted (x:[])      =True
+isSorted (x:y:xs)    = (x <=y) && isSorted (y:xs)
+
+
+merge::[Int] ->[Int] ->[Int]
+merge [] []          =[]
+merge xs []          =xs
+merge [] ys          =ys
+merge (x:xs) (y:ys)  
+    | x <=y      = x :  merge xs (y:ys)
+    |otherwise   = y:   merge (x:xs) ys
+
+
+
+insert':: Int ->[Int] ->[Int]
+insert' x []   =[x]
+insert' x (y:ys) = if (x <=y) then x:y:ys else y :insert' x ys
+
 --nizove
 digits:: String ->String
 digits str= [ch | ch <-str, isDigit ch]
